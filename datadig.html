@@ -57,61 +57,65 @@
         </nav>
         <div class="first_row_map">
             <h1 class="text-center">A World of T-Rexploration!</h1>
-            <p class="text-center">Go digging by region! Use the map below to select a cluster of fossils to explore!</p>
-            <div class="row">
+            <p class="text-center">It's time to start digging! Using the map and chart below, explore where fossils were found, what kind of dinosaurs lived and what did they eat. Use the filter to see the decade each fossil was discovered. Watch how diets change through time
+                and see how dinosaurs stack up to one another!</p>
+            <div class='second row filters'>
                 <div class="col-md-12">
-                    <div id="mapcontainer">
-                        <div id="map"></div>
+                    <div class="col-md-12">
+
+                    </div>
+                    <div class="col-md-12" style="text-align:center">
+
+                        <h4 class="text-center"> Dig by Decade Discovered:</h4>
+                        <select id="decade">
+                            <option>All</option>
+                            <option>2010</option>
+                            <option>2000</option>
+                            <option>1990</option>
+                            <option>1980</option>
+                            <option>1970</option>
+                            <option>1960</option>
+                            <option>1950</option>
+                            <option>1940</option>
+                            <option>1930</option>
+                            <option>1920</option>
+                            <option>1910</option>
+                            <option>1900</option>
+                            <option>1890</option>
+                            <option>1880</option>
+                            <option>1870</option>
+                            <option>1860</option>
+                            <option>1850</option>
+                            <option>1840</option>
+                            <option>1830</option>
+                        </select>
+
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="mapcontainer">
+                                <div id="map"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class='second row filters'>
-            <div class="row">
-                <div class="col-md-4">
 
-                </div>
-                <div class="col-md-4">
-
-                    <h4>Dig by Decade Discovered:</h4>
-                    <select id="decade">
-                        <option>All</option>
-                        <option>2010</option>
-                        <option>2000</option>
-                        <option>1990</option>
-                        <option>1980</option>
-                        <option>1970</option>
-                        <option>1960</option>
-                        <option>1950</option>
-                        <option>1940</option>
-                        <option>1930</option>
-                        <option>1920</option>
-                        <option>1910</option>
-                        <option>1900</option>
-                        <option>1890</option>
-                        <option>1880</option>
-                        <option>1870</option>
-                        <option>1860</option>
-                        <option>1850</option>
-                        <option>1840</option>
-                        <option>1830</option>
-                    </select>
-
-                </div>
                 <div class="col-md-4">
 
                 </div>
             </div>
         </div>
         <div class="viz_bucket">
+            <br>
             <h2 class="text-center">The Results of your Dig!</h2>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" style="border: thin solid black">
                     <h4 class="text-center">Dinos Found by Decade</h4>
                     <div id="chart"></div>
 
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" style="border: thin solid black">
                     <div id="bar-plot"></div>
                 </div>
             </div>
