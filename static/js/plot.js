@@ -1,54 +1,39 @@
-$(document).ready(function() {
-
-    $('#decade').change(function() {
-        doWork(false);
-    });
-
-    doWork(true);
-});
-
-function doWork(isInit) {
-    d3.csv("static/data/kaggle.csv").then(function(data) {
-        if (isInit)
-            makeFilters(data);
-        var filteredData = makeStackedAreaChart(data);
-        makePlot(filteredData);
-    });
-}
-
 //poplulate the drop down list
 
-function makeFilters(data) {
-    var dropDownList = [];
-    //only push the first value of the decades to dropdown list to avoid duplicate
-    data.map(x => x["Ref Pubyr"]).forEach(function(val) {
-        //get the decade years
-        if (dropDownList.find(element => element == parseInt(val / 10) * 10) == undefined) {
-            dropDownList.push(parseInt(val / 10) * 10);
-        }
-    });
-    // sort and loop thru each object
-    dropDownList.sort((a, b) => b - a);
-    $('#decade').html('');
-    $('#decade').append(`<option value="all">All</option>`);
-    dropDownList.forEach(function(val) {
-        //append the option
-        var newOption = `<option>${val}</option>`;
-        $('#decade').append(newOption);
-    });
-}
+// function makeFilters(data) {
+//     var dropDownList = [];
+//     //only push the first value of the decades to dropdown list to avoid duplicate
+//     data.map(x => x["Ref Pubyr"]).forEach(function(val) {
+//         //get the decade years
+//         if (dropDownList.find(element => element == parseInt(val / 10) * 10) == undefined) {
+//             dropDownList.push(parseInt(val / 10) * 10);
+//         }
+//     });
+//     // sort and loop thru each object
+//     dropDownList.sort((a, b) => b - a);
+//     $('#decade').html('');
+//     $('#decade').append(`<option value="all">All</option>`);
+//     dropDownList.forEach(function(val) {
+//         //append the option
+//         var newOption = `<option>${val}</option>`;
+//         $('#decade').append(newOption);
+//     });
+// }
 //set the  filter value
-function makeStackedAreaChart(data) {
+
+function filterBarChart(data) {
     var filter = $("#decade").val();
-    if (filter !== "all") {
+    if (filter !== "All") {
         data = data.filter(x => (x["Ref Pubyr"] >= parseInt(filter)) & (x["Ref Pubyr"] < parseInt(filter + 10)));
 
     }
     return data;
 }
-//make plot
 
 function makePlot(data) {
+    // $('#bar-plot').empty();
+
+
     //create a set and occur only once for x axis
     var xdata = [...new Set(data.map(x => x["Geological Time Period"]))]
         //creat list for y axis
