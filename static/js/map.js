@@ -80,11 +80,19 @@ function buildMap(data) {
         id: "mapbox/dark-v10",
         accessToken: API_KEY
     });
+    var vintage_mode = L.tileLayer("https://api.mapbox.com/styles/v1/jammi527/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+        attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
+        tileSize: 512,
+        maxZoom: 18,
+        zoomOffset: -1,
+        id: "ckleqjhhx30a017mp1cd6awl2",
+        accessToken: "pk.eyJ1IjoiamFtbWk1MjciLCJhIjoiY2trZzVzdnQ3MDR4bTJvcGszd29qNXRoYyJ9.99I55pDTWCxp2yqfeZDugQ"
+    });
 
     var myMap = L.map("map", {
         center: [0, 0],
         zoom: 1,
-        layers: [light_mode, satellite_mode, outdoors_mode, dark_mode]
+        layers: [light_mode, satellite_mode, outdoors_mode, dark_mode, vintage_mode]
     });
 
     var marker_list = L.markerClusterGroup();
@@ -119,6 +127,7 @@ function buildMap(data) {
         "Light Mode": light_mode,
         "Outdoors Mode": outdoors_mode,
         "Dark Mode": dark_mode,
+        "Vintage Mode": vintage_mode,
 
 
     };
